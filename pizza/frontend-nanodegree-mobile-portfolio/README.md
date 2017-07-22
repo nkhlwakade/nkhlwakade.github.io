@@ -1,7 +1,7 @@
 # Optimized front-end-mobile-portfolio
 <br>
 ## How to run
-To open the website you need to have a web browser like Mozilla or Chrome which will open the webpage by clicking on this :
+To open the website you need to have a web browser like Mozilla or Chrome which will open the webpage by clicking on this : https://nkhlwakade.github.io/pizza/frontend-nanodegree-mobile-portfolio/
 <br>
 ## Optimizations
 1. Moved CSS code from style.css into index.html file and incorporated "media" attribute in print.css link.
