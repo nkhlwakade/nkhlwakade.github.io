@@ -500,7 +500,7 @@ function requestTick() {
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
+/*
   // Optimized with transform3d and took some objects out from the loop
   var phase = Math.sin(document.body.scrollTop / 1250);
   for (var i = 0; i < items.length; i++) {
@@ -513,15 +513,33 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
-  ticking = false;
+  ticking = false;*/
+    var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
+
+  // User Timing API to the rescue again. Seriously, it's worth learning.
+  // Super easy to create custom metrics.
+  window.performance.mark("mark_end_frame");
+  window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
+  if (frame % 10 === 0) {
+    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+    logAverageFrame(timesToUpdatePosition);
+  }
 }
 
 // Optimized with new scroll tracer
-window.addEventListener('scroll', onScroll, false);
+/*window.addEventListener('scroll', onScroll, false);
+*/
+window.addEventListener('scroll', updatePositions);
+
+
 
 // Optimized with appropriate image size and rAF
 // Moved duplicate CSS attributes to style section in index.html
-document.addEventListener('DOMContentLoaded',
+/*document.addEventListener('DOMContentLoaded',
   window.requestAnimationFrame(function() {
   var cols = 8;
   var s = 256;
@@ -531,6 +549,23 @@ document.addEventListener('DOMContentLoaded',
     elem.src = "images/pizza2.png";
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.getElementById("movingPizzas1").appendChild(elem);
+  }
+  window.requestAnimationFrame(updatePositions);
+}));
+*/
+document.addEventListener('DOMContentLoaded',
+  window.requestAnimationFrame(function() {
+  var cols = 8;
+  var s = 256;
+  for (var i = 0; i < 200; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza2.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    document.querySelector("#movingPizzas1").appendChild(elem);
   }
   window.requestAnimationFrame(updatePositions);
 }));
