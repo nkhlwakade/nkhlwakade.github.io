@@ -539,7 +539,7 @@ window.addEventListener('scroll', updatePositions);
 
 // Optimized with appropriate image size and rAF
 // Moved duplicate CSS attributes to style section in index.html
-/*document.addEventListener('DOMContentLoaded',
+document.addEventListener('DOMContentLoaded',
   window.requestAnimationFrame(function() {
   var cols = 8;
   var s = 256;
@@ -547,13 +547,16 @@ window.addEventListener('scroll', updatePositions);
     var elem = document.createElement('img');
     elem.classList.add('mover');
     elem.src = "images/pizza2.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.getElementById("movingPizzas1").appendChild(elem);
   }
   window.requestAnimationFrame(updatePositions);
 }));
-*/
-document.addEventListener('DOMContentLoaded',
+
+/*document.addEventListener('DOMContentLoaded',
   window.requestAnimationFrame(function() {
   var cols = 8;
   var s = 256;
@@ -569,3 +572,4 @@ document.addEventListener('DOMContentLoaded',
   }
   window.requestAnimationFrame(updatePositions);
 }));
+*/
