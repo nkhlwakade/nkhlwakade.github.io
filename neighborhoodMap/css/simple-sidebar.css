@@ -1,14 +1,59 @@
-/*!
- * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
-
- body {
+body {
     overflow-x: hidden;
- }
+}
 
-/* Toggle Styles */
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div.col-lg-12 > #map{
+    height: 92vh;
+}
+
+a#menu-toggle svg {
+    width: 40px;
+    fill: #000;
+}
+
+.single-row {
+    display: flex;
+}
+
+a {
+    margin: 10px 10px 10px 0;
+}
+
+.filter-input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+li:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+li {
+    color: #999999;
+}
+
+input {
+    color: #000;
+}
+
+.map-error {
+    max-width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #f7f7f7;
+    color:#254441;
+    display: block;
+}
+-------
 
 #wrapper {
     padding-left: 0;
