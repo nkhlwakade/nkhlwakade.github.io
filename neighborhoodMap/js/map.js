@@ -172,6 +172,8 @@ var ViewModel = function (){
                 hotelItem.text.push('<p>•'+item.text+'</p>');
             });
           }
+        }).fail(function(){
+            alert("Oops! Foursquare request failed. Try reloading the Map.");
         });
       });
     });

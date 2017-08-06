@@ -4,6 +4,11 @@ This projects makes use of Google Maps to show some restaurants in New York. Use
 ##How to run this application
 Simply visit the given link to see the live version : [Click Here](https://nkhlwakade.github.io/neighborhoodMap)
 
+###OR
+
+1. Download or Clone the repository from GitHub on your computer.
+2. Open index.html in any browser.
+
 ## Libraries, frameworks and APIs used
 1. Knockout JS
 2. Google Maps
