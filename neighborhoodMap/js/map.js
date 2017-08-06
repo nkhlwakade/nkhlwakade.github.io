@@ -100,7 +100,7 @@ function initMap() {
     // Get contect infowindows
     function getContent(hotelItem) {
     var tips = "<h3>" + hotelItem.name +"</h3><br><div style='width:200px;min-height:120px'>"+hotelItem.text.join("")+"<br><a href='https://www.foursquare.com'>Information provided by Foursuqare.com</a></div>";
-    var errorString = "Oops, Foursquare content not available."
+    var errorString = "Oops, Foursquare content not available.";
     if (hotelItem.name.length > 0) {
       return tips;
       } else {
@@ -118,7 +118,7 @@ function initMap() {
         marker.setAnimation(null);
         }, 700);
         }
-    };
+    }
 
 
 // ViewModel is here
@@ -144,7 +144,7 @@ var ViewModel = function (){
         map.panTo(this.position);
 
         //pan down infowindow by 200px to keep whole infowindow on screen
-        map.panBy(0, -200)
+        map.panBy(0, -200);
         infowindow.setContent(getContent(hotelItem));
         infowindow.open(map, marker);
         toggleBounce(marker);
@@ -183,7 +183,7 @@ var ViewModel = function (){
     this.itemClick = function (space) {
         var markerId = space.markerId;
         google.maps.event.trigger(space.marker, "click");
-    }
+    };
 
     // Filtering the hotel list
     self.filter = ko.observable("");
@@ -216,7 +216,7 @@ var Hotel = function (data){
     this.fs_id = data.fs_id;
     this.marker="";
     this.text=[];
-}
+};
 
 ko.applyBindings(new ViewModel());
 }
